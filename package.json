@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/emanuele-falzone/aladino/issues"
   },
-  "homepage": "https://github.com/emanuele-falzone/aladino#readme"
+  "homepage": "https://github.com/emanuele-falzone/aladino#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
