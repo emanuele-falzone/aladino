@@ -1,0 +1,19 @@
+{
+  "name": "aladino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "aladino.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanuele-falzone/aladino.git"
+  },
+  "author": "Emanuele Falzone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emanuele-falzone/aladino/issues"
+  },
+  "homepage": "https://github.com/emanuele-falzone/aladino#readme"
+}
