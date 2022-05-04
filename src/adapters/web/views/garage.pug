@@ -1,0 +1,25 @@
+extends base.pug
+
+block main 
+  .container
+    h4.header.center.orange-text
+      | Seleziona un veicolo dalla lista, oppure aggiungi un nuovo veicolo.
+    .row
+      each vehicle in vehicles
+        .col.s12.m4
+          .card.horizontal
+            .card-stacked
+              vehicle
+                .card-content
+                  p
+                    | Targa: 
+                    plate= vehicle.plate
+                  p
+                    | Nome: 
+                    name= vehicle.name
+              .card-action
+                a(href='#') This is a link
+    .row.center
+      a#new-vehicle-button.btn-large.waves-effect.waves-light(href='./registrare-il-veicolo' name='action') Aggiungi un nuovo veicolo
+    br
+    br

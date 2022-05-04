@@ -1,0 +1,45 @@
+extends base.pug
+
+block main 
+  #index-banner.section.no-pad-bot
+    .container
+      br
+      br
+      .row.center
+        h5.header.col.s12.light Fai luce sulla manutenzione dei tuoi veicoli.
+      form(action='./accedi' method='POST')
+        .row.center.input-field
+          .col.s12.m4.offset-m4
+            .input-field
+              input#password.validate.center-align(placeholder='inserisci la password per accedere' type='password' name='password' required='required' oninvalid="this.setCustomValidity('Inserisci la password per accedere!')" oninput="this.setCustomValidity('')")
+        .row.center
+          button#download-button.btn-large.waves-effect.waves-light.orange(type='submit') Accedi
+      br
+      br
+  .container
+    .section
+      .row
+        .col.s12.m4
+          .icon-block
+            h2.center.light-blue-text
+              i.large.material-icons assignment
+            h5.center Scheda manutenzione
+            p.light
+              | Tieni traccia della manutenzione dei tuoi veicoli, dal tagliando
+              | annuale agli interventi straordinari.
+        .col.s12.m4
+          .icon-block
+            h2.center.light-blue-text
+              i.large.material-icons settings
+            h5.center Ricambi
+            p.light
+              | Gestisci il catalogo ricambi, aggiungi foto, specifica dimensioni e codici
+              | OEM.
+        .col.s12.m4
+          .icon-block
+            h2.center.light-blue-text
+              i.large.material-icons error
+            h5.center Problemi
+            p.light Registra i problemi dei tuoi veicoli con tanto di foto e descrizione.
+    br
+    br

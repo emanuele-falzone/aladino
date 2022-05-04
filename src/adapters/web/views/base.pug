@@ -1,0 +1,20 @@
+doctype html
+head
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0')
+  title Aladino
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css' type='text/css' media='screen,projection')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(href='static/fonts/font.css' rel='stylesheet')
+body(style='display: flex; min-height: 100vh; flex-direction: column;')
+  nav.light-blue.lighten-1(role='navigation')
+    .nav-wrapper.container.center
+        a#logo-container.brand-logo(href='./' style='display: contents;')
+          font(face="Primavera") Aladino
+  main(style='flex: 1 0 auto;')
+    block main 
+  footer.page-footer.orange.footer-copyright
+    .container
+      | Creato da Emanuele Falzone e Salvatore Falzone
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
+  script(src='https://code.jquery.com/jquery-2.1.1.min.js')

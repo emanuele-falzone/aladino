@@ -1,0 +1,20 @@
+extends base.pug
+
+block main 
+  .container
+    h1.header.center.orange-text
+      inserisci(le='' informazioni='' del='' veicolo.='')
+    .row
+      form.col.s12.m4.offset-m4(action='./registrare-il-veicolo' method='POST')
+        .row
+          .input-field.col.s12
+            input#name.validate(name='name' type='text')
+            label(for='name') Nome
+        .row
+          .input-field.col.s12
+            input#plate.validate(name='plate' type='text')
+            label(for='plate') Targa
+        .row.center
+          button#new-vehicle-button.btn-large.waves-effect.waves-light(type='submit') Aggiungi
+    br
+    br
