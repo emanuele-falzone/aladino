@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node src/aladino.ts",
     "ts-node": "ts-node",
-    "test": "node ./node_modules/@cucumber/cucumber/bin/cucumber-js test/features/**/*.feature --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet"
+    "test": "cucumber-js test/features/**/*.feature --require test/worlds/DomainWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit",
+    "test-persistent": "cucumber-js test/features/**/*.feature --require test/worlds/PersistentWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit --world-parameters '{\"connectionString\":\"postgresql://test:test@localhost:5432/aladino\"}'",
+    "test-end-to-end": "cucumber-js test/features/**/*.feature --require test/worlds/EndToEndWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit --world-parameters '{\"url\":\"http://localhost:3000\",\"connectionString\":\"postgresql://test:test@localhost:5432/aladino\"}'"
   },
   "repository": {
     "type": "git",
@@ -19,10 +21,25 @@
   },
   "homepage": "https://github.com/emanuele-falzone/aladino#readme",
   "devDependencies": {
-    "@types/node": "^16.10.3",
     "@cucumber/cucumber": "^7.3.1",
     "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.10.3",
+    "@types/pg": "^8.6.1",
+    "axios": "^0.24.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "^4.3.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "pug": "^3.0.2"
   }
 }
