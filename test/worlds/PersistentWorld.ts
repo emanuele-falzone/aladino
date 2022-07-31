@@ -1,25 +1,26 @@
 import { Before, IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber'
 import { Client } from 'pg';
-import { VehiclePostgresRepository } from '../../src/adapters/VehiclePostgresRepository';
-import { Vehicle } from '../../src/domain/Vehicle';
+import { VehiclePostgresRepository } from '../../src/adapters/persistence/VehiclePostgresRepository';
 import { VehicleRepository } from '../../src/domain/VehicleRepository';
 import { VehicleService } from '../../src/domain/VehicleService';
-import { InMemoryVehicleRepository } from '../stubs/InMemoryVehicleRepository';
 import { AladinoWorld } from './AladinoWorld';
+import config from './persistent-world-config.json';
 
 export class PersistentWorld extends AladinoWorld {
 
-    public connectionString: string
     private vehicleRepository: VehicleRepository
     public vehicleService: VehicleService
 
     constructor({ attach, log, parameters }: IWorldOptions) {
         super({ attach, log, parameters });
-        this.connectionString = parameters.connectionString;
-        this.vehicleRepository = new VehiclePostgresRepository(this.connectionString);
+        this.vehicleRepository = new VehiclePostgresRepository(
+            config.postgres.host,
+            config.postgres.port,
+            config.postgres.user,
+            config.postgres.password,
+            config.postgres.database);
         this.vehicleService = new VehicleService(this.vehicleRepository);
     }
-
 
     async requestVechicleList() {
         this.client.receiveVehicleList(await this.vehicleService.listRegisteredVehicles());
@@ -35,9 +36,15 @@ export class PersistentWorld extends AladinoWorld {
 }
 
 Before(async function (this: PersistentWorld) {
-    let pgClient = new Client({ connectionString: this.connectionString });
+    let pgClient = new Client({
+        host: config.postgres.host,
+        port: config.postgres.port,
+        user: config.postgres.user,
+        password: config.postgres.password,
+        database: config.postgres.database
+    })
     pgClient.connect()
     await pgClient.query("TRUNCATE TABLE vehicles;")
-});
+})
 
 setWorldConstructor(PersistentWorld)

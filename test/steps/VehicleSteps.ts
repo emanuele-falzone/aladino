@@ -1,16 +1,13 @@
-import { Before, Given, Then, When, DataTable } from '@cucumber/cucumber';
-import { Vehicle } from '../../src/domain/Vehicle';
+import { Given, Then, When, DataTable } from '@cucumber/cucumber';
 import { AladinoWorld } from '../worlds/AladinoWorld';
 
-When('Salvatore richiede la lista dei veicoli',
+When('I ask for the vehicle list',
     async function (this: AladinoWorld) {
         await this.requestVechicleList();
     }
 );
 
-Given('che Salvatore non ha mai registrato un veicolo', function () { });
-
-Given('che in passato Salvatore ha registrato i veicoli',
+Given('that I registered the vehicles',
     async function (this: AladinoWorld, dataTable: DataTable) {
         for (let row of dataTable.rows()) {
             await this.registerVehicle(row[0], row[1]);
@@ -19,14 +16,14 @@ Given('che in passato Salvatore ha registrato i veicoli',
     }
 );
 
-When('Salvatore registra il veicolo {} con targa {}',
+When('I register the vehicle {} with plate {}',
     async function (this: AladinoWorld, name: string, plate: string) {
         await this.registerVehicle(name, plate);
         await this.requestVechicleList();
     }
 );
 
-Then('Salvatore riceve la seguente lista',
+Then('I get the following vehicles',
     function (this: AladinoWorld, dataTable: DataTable) {
         this.client.confirmVehicleListSize(dataTable.rows().length)
         for (let row of dataTable.rows()) {
@@ -35,14 +32,14 @@ Then('Salvatore riceve la seguente lista',
     }
 );
 
-Then('la registrazione fallisce',
+Then('I got informed that a vehicle with the same plate has already been registered',
     function (this: AladinoWorld) {
         this.client.confirmError()
     }
 );
 
-Then('Salvatore riceve una lista vuota',
+Then('I got informed that the vehicle is now registered',
     function (this: AladinoWorld) {
-        this.client.confirmVehicleListIsEmpty()
+        this.client.confirmNoError()
     }
 );

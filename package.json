@@ -7,8 +7,7 @@
     "start": "ts-node src/aladino.ts",
     "ts-node": "ts-node",
     "test": "cucumber-js test/features/**/*.feature --require test/worlds/DomainWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit",
-    "test-persistent": "cucumber-js test/features/**/*.feature --require test/worlds/PersistentWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit --world-parameters '{\"connectionString\":\"postgresql://test:test@localhost:5432/aladino\"}'",
-    "test-end-to-end": "cucumber-js test/features/**/*.feature --require test/worlds/EndToEndWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit --world-parameters '{\"url\":\"http://localhost:3000\",\"connectionString\":\"postgresql://test:test@localhost:5432/aladino\"}'"
+    "test-with-persistence": "cucumber-js test/features/**/*.feature --require test/worlds/PersistentWorld.ts --require test/steps/**/*.ts --require-module ts-node/register --publish-quiet --exit"
   },
   "repository": {
     "type": "git",

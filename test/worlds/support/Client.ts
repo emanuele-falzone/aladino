@@ -30,6 +30,10 @@ export class Client {
         assert(!!this.error, "No error has been thrown")
     }
 
+    confirmNoError() {
+        assert(!this.error, "Error has been thrown")
+    }
+
     receiveError(error: Error) {
         this.error = error;
     }
