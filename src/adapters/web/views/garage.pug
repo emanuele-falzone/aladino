@@ -3,7 +3,7 @@ extends base.pug
 block main 
   .container
     h4.header.center.orange-text
-      | Seleziona un veicolo dalla lista, oppure aggiungi un nuovo veicolo.
+      | Select a vehicle from the list or register a new one.
     .row
       each vehicle in vehicles
         .col.s12.m4
@@ -12,14 +12,14 @@ block main
               vehicle
                 .card-content
                   p
-                    | Targa: 
+                    | Plate: 
                     plate= vehicle.plate
                   p
-                    | Nome: 
+                    | Name: 
                     name= vehicle.name
               .card-action
                 a(href='#') This is a link
     .row.center
-      a#new-vehicle-button.btn-large.waves-effect.waves-light(href='./registrare-il-veicolo' name='action') Aggiungi un nuovo veicolo
+      a#new-vehicle-button.btn-large.waves-effect.waves-light(href='./register-vehicle' name='action') Register new vehicle
     br
     br

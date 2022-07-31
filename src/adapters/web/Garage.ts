@@ -3,7 +3,7 @@ import { Vehicle } from '../../domain/Vehicle';
 import { VehicleService } from '../../domain/VehicleService';
 
 export class Garage {
-    public static ENDPOINT = "/il-mio-garage"
+    public static ENDPOINT = "/garage"
 
     private vehicleService: VehicleService
     constructor(vehicleService: VehicleService) {

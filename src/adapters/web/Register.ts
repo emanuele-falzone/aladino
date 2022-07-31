@@ -4,7 +4,7 @@ import { Garage } from './Garage';
 import { Error } from './Error';
 
 export class Register {
-    public static ENDPOINT = "/registrare-il-veicolo"
+    public static ENDPOINT = "/register-vehicle"
 
     private vehicleService: VehicleService
     constructor(vehicleService: VehicleService) {

@@ -2,19 +2,18 @@ extends base.pug
 
 block main 
   .container
-    h1.header.center.orange-text
-      inserisci(le='' informazioni='' del='' veicolo.='')
+    h4.header.center.orange-tex Fill in vehicle info
     .row
-      form.col.s12.m4.offset-m4(action='./registrare-il-veicolo' method='POST')
+      form.col.s12.m4.offset-m4(action='./register-vehicle' method='POST')
         .row
           .input-field.col.s12
             input#name.validate(name='name' type='text')
-            label(for='name') Nome
+            label(for='name') Name
         .row
           .input-field.col.s12
             input#plate.validate(name='plate' type='text')
-            label(for='plate') Targa
+            label(for='plate') Plate
         .row.center
-          button#new-vehicle-button.btn-large.waves-effect.waves-light(type='submit') Aggiungi
+          button#new-vehicle-button.btn-large.waves-effect.waves-light(type='submit') Register
     br
     br

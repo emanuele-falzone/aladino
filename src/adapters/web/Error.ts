@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
 
 export class Error {
-    public static ENDPOINT = "/errore"
+    public static ENDPOINT = "/error"
     static getRouter(): Router {
         const router = Router()
 

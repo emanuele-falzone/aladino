@@ -3,7 +3,7 @@ import session from 'express-session';
 import { Garage } from './Garage';
 import { Home } from './Home';
 
-export const ENDPOINT = "/accedi"
+export const ENDPOINT = "/login"
 
 declare module 'express-session' {
     interface SessionData {
